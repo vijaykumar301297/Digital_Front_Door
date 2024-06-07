@@ -1,3 +1,3 @@
 # HMS
 
-This Sote is regarding Health insurance. 
+This site is regarding Health insurance. 
