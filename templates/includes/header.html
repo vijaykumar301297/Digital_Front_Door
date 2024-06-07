@@ -1,0 +1,42 @@
+{% load static %}
+
+<header class="header">
+    <nav class="navbar">
+        <div class="logo_block">
+            <img src="" alt="Logo" class="LOGO">
+        </div>
+        <div class="nav_list">
+            <ul class="item">
+                <li class="item_list img_list" >
+                    <button class="profile_btn profile" id="profile_btn" onclick="myFunction()">
+                        <div class="name">
+                            {% if user.role == 'Admin' %}
+                                <span>{{ user.first_name}} {{user.last_name }} </span>
+                                <br>
+                                <span class="role">{{ user.role}}</span>
+                            {% elif user.role == 'Doctor' %}
+                                <span>Dr. {{ user.first_name}} {{user.last_name }} </span><br>
+                                <span class="role">{{ user.designation}}</span>
+                            {% else %}
+                                <span>{{ user.first_name}} {{user.last_name }} </span>
+                                <br>
+                                <span class="role">{{ user.role}}</span>
+                            {% endif %}
+                        </div>
+                         {% if user.img  %}
+
+                        <img src="{{user.img.url}}" alt="" class="img img3">
+                    {% else %}
+                        <img src="" alt="" class="img img3">
+                    {% endif %}
+
+                    </button>
+                    <div class="account_display a" id="myDropdown" >
+                        <a href="{% url 'account_info'  %}" ><span class="material-symbols-outlined">manage_accounts</span>Account Info</a>
+                        <a href="{% url 'logout' %}"><span class="material-symbols-outlined">logout</span>Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

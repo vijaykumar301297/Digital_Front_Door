@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Front Door | Patient Form</title>
+    <link rel="stylesheet" href="{% static 'css/patient.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <div class="patient_details">
+            <form action="" method="post">
+                 {% csrf_token %}
+                        <h2>Enter the details to book Patient</h2>
+                <div class="patient_info">
+                    <div class="name">
+                        <label for="">Full Name</label>
+                        <input type="text" placeholder="Enter Full Name" name="full_name" required>
+                    </div>
+
+                    <div class="name">
+                        <label for="">Phone Number</label>
+                        <input type="text" placeholder="Enter Phone Number" name="phone_number" required>
+                    </div>
+                    <div class="name">
+                        <label for="">Email</label>
+                        <input type="email" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class="name">
+                        <label for="">Date Of Birth</label>
+                        <input type="Date" id="date" name="date_of_birth" required>
+                    </div>
+                    <div class="name">
+                        <label for="">Gender</label>
+                       <select name="gender" id="gender">
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="FeMale">Female</option>
+                            <option value="No">Not to mention</option>
+                        </select>
+                    </div>
+
+                    <input type="text" value="" name="user_id" class="doctor_name" hidden="hidden">
+                    <input type="text" value="" name="appointed_date" class="time" hidden="hidden">
+                    <input type="date" value="" name="date" class="date" hidden="hidden">
+                    <input type="text" value="" name="specialization" class="specialization" hidden="hidden">
+                    <input type="text" value="" name="location" class="location" hidden="hidden">
+
+
+
+                </div>
+                <div class="btn_submit">
+                    <button  type="submit">Book Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+
+
+        let allowedTime = sessionStorage.getItem('from');
+        let doctorName = sessionStorage.getItem('doctor_name');
+        let doctorSpeciality = sessionStorage.getItem('specialization');
+        let get_date = sessionStorage.getItem('date');
+        let loca = sessionStorage.getItem('Location');
+
+        console.log(allowedTime,doctorName,doctorSpeciality, get_date,loca );
+
+        const doctor_name = document.querySelector('.doctor_name');
+        doctor_name.setAttribute('value', doctorName);
+
+        const dates = document.querySelector('.date');
+        const da = new Date(dates);
+
+        function formatDate(val) {
+            const months = {
+                'Jan': '01',
+                'Feb':'02',
+                'Mar':'03',
+                'Apr':'04',
+                'May':'05',
+                'June':'06',
+                'July':'07',
+                'Aug':'08',
+                'Sep':'09',
+                'Oct':'10',
+                'Nov':'11',
+                'Dec':'12',
+            };
+
+            const parts = val.split(" ");
+            const month = months[parts[0]];
+            let day = parts[1].replace(',', '');  ;
+            if (day <10 ) {
+                console.log('hi')
+                day = '0'+ day
+            }
+            else {
+                day = day;
+            }
+
+            const year = parts[2];
+
+            return `${year}-${month}-${day}`;
+        }
+
+        const originalDate = get_date;
+        const formattedDate = formatDate(originalDate);
+        console.log((formattedDate)); 
+        console.log(da)
+
+        dates.setAttribute('value', formattedDate);
+        console.log(date.value);
+        const specialization = document.querySelector('.specialization');
+        specialization.setAttribute('value', doctorSpeciality);
+        const time = document.querySelector('.time');
+        time.setAttribute('value', allowedTime);
+        const loc = document.querySelector('.location');
+        loc.setAttribute('value', loca);
+
+    </script>
+</body>
+</html>

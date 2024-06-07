@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}List of Departments | Digital Front Door{% endblock %}
+
+{% block content %}
+
+        <div class="primary_heading lists">
+            <h4 class="heading--text ">
+                List of Department
+            </h4>
+            <a href="{% url 'add_department' %}" class="btn_add">Add Department</a>
+        </div>
+        <div class="table ">
+            <div class="table_header">
+                <div class="left">
+
+                    <input type="text" id="search" class="myInput" placeholder="Search or Filter rows" title="search" onkeyup="searchFilter()">
+                </div>
+
+            </div>
+
+            <table class="" id ="myTable" >
+                <thead>
+                    <tr class="headers">
+
+                        <th>Department Name</th>
+                        <th>Description</th>
+                        <th>Department Head</th>
+                        <th>Department Date</th>
+                        <th>Department Status</th>
+                        <th class="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for i in datas %}
+                    <tr id = {{i.id}}>
+
+                        <td>{{i.department_name}}</td>
+                        <td style="max-width:40px;overflow:hidden; text-overflow: ellipsis;white-space: nowrap;">{{i.department_info}}</td>
+                        <td>{{i.department_head}}</td>
+                        <td>{{i.department_date}}</td>
+                        {% if i.department_status == 'Active' %}
+                            <td><span class="active_state">{{i.department_status}}</span></td>
+                        {% else %}
+                          <td><span class="cancel_state">{{i.department_status}}</span></td>
+                        {% endif %}
+                        <td>
+                            <a href="{% url 'edit_department' i.id %}" class="edit_btn"><span class="material-symbols-outlined"  class = "edit_material">edit_square</span></a>
+                            <a href="{% url 'delete' i.id %}" class="delete_btn" id="delete_btn"><span class="material-symbols-outlined"  class = "delete_material">delete</span></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="pagination">
+
+                {% if datas.has_previous %}
+                <a href="?page={{datas.previous_page_number}}">&#8592; previous</a>
+                {% endif %}
+                {% if datas.has_next %}
+                <a href="?page={{datas.next_page_number}}" class="left">next &#8594</a>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+
+{% endblock %}

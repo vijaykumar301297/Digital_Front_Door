@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS | {% block title %} Home {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="horizonal_navbar">
+                {% include 'includes/header.html' %}
+            </div>
+            <main class="main_block">
+                <div class="col-md">
+                     <div class="col-md-1">
+                        {% include 'includes/sidebar.html' %}
+                     </div>
+                    <div class="col-md-2">
+                        {% block content %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<script src ="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Add Doctor {% endblock %}
+
+{% block content %}
+<!--    <div class="col-md-2_content">-->
+        <div class="primary_heading">
+            <h4 class="heading--text">
+                Add Doctor
+            </h4>
+        </div>
+        <form action="" method="post" >
+            {% csrf_token %}
+            <div class="form_input">
+                <div class="form-input">
+                    <label for="firstname">First name</label>
+                    <input type="text" id="firstname" name ="firstname" autocomplete="off" required>
+                </div>
+                <div class="form-input">
+                    <label for="lastname">Last name</label>
+                    <input type="text" id="lastname" name ="lastname" autocomplete="off" required >
+                </div>
+                <div class="form-input">
+                    <label for="">Select Gender</label>
+                    <select name="gender" id="gender">
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+
+                </div>
+                <div class="form-input">
+                    <label for="mail">Email</label>
+                    <input type="email" id="mail" name ="mail" autocomplete="off" required >
+                </div>
+                <div class="form-input">
+                    <label for="phonenumber">Mobile No</label>
+                    <input type="text" id="phonenumber" name ="phonenumber" autocomplete="off" required >
+                </div>
+<!--                <div class="form-input">-->
+<!--                    <label for="dob">Date of Birth</label>-->
+<!--                    <input type="date" id="dob" name ="dob" autocomplete="off" required >-->
+<!--                </div>-->
+                <div class="form-input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name ="password" autocomplete="off" required >
+                </div>
+                <div class="form-input">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name ="designation" autocomplete="off" required >
+                </div>
+                <div class="form-input">
+                    <label for="">Select Department</label>
+                    <select name="department" id="department">
+                        <option value="">Select</option>
+                        <option value="Hair">Hair</option>
+                        <option value="Skin">Skin</option>
+                    </select>
+                </div>
+                <div class="form-input textarea">
+                    <label for="">Address</label>
+                    <textarea name="address" id="" cols="10" rows="3" autocomplete="off" required></textarea>
+                </div>
+            </div>
+            <div class="btn_block">
+                <button type="submit" class="btn btn_cancel">Cancel</button>
+                <button type="submit" class="btn btn_submit">Submit</button>
+            </div>
+        </form>
+<!--    </div>-->
+ {% endblock %}

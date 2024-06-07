@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Doctor Schedules | Digital Front Door{% endblock %}
+
+{% block content %}
+
+   <div class="primary_heading lists">
+            <h4 class="heading--text ">
+                List of Session
+            </h4>
+<!--            <a href="{% url 'session'  user.id %}" class="btn_add">Schedule Time</a>-->
+        </div>
+        <div class="table ">
+            <div class="table_header">
+                <div class="left">
+                    <input type="text" id="search" class="myInput" placeholder="Search or Filter rows" title="search" onkeyup="searchFilter()">
+                </div>
+
+            </div>
+
+            <table class="" id ="myTable" >
+                <thead>
+                    <tr class="headers">
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>Dr. {{i.user_id.first_name}} {{i.user_id.last_name}}</td>
+                    <td>{{i.deptId}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.from_time}}</td>
+                    <td>{{i.to_time}}</td>
+                    <td>{{i.location}}</td>
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <div class="pagination">
+
+                {% if data.has_previous %}
+                <a href="?page={{data.previous_page_number}}">&#8592; previous</a>
+                {% endif %}
+                {% if data.has_next %}
+                <a href="?page={{data.next_page_number}}" class="left">next &#8594</a>
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}

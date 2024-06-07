@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+<!--    <div class="col-md-2_content">-->
+
+        <div class="profile_header">
+            <span class="heading--text">
+                Account Details
+            </span>
+            <div>
+
+                <a href="{% url 'account'  %}">Edit Details</a>
+                <a href="{% url 'password_change'  %}">Change Password</a>
+                </div>
+        </div>
+
+        <div class="accountInfo">
+            <div class="account_info">
+                <div class="img_block">
+                    <div class="user_img">
+                        <div class="img">
+                            {% if user.img  %}
+                                <img src="{{user.img.url}}" alt="" class="img img3">
+                            {% else %}
+                                <img src="" alt="" class="img img3">
+                            {% endif %}
+                        </div>
+                        <div class="info">
+                            {% if user.role == 'Admin' %}
+                                <h5 class="user_name">{{user.first_name}} {{user.last_name}}</h5>
+                            {% elif user.role == 'Doctor' %}
+                                <h5 class="user_name">Dr. {{user.first_name}} {{user.last_name}}</h5>
+                            {% endif %}
+                            <p class="user_role">{{user.designation}}</p>
+                            <p class="user_role">EmpID</p>
+                        </div>
+
+                    </div>
+                    <div class="user_data">
+                        <p class="user_info">Email: <a href="mailto:{{user.email}}">{{user.email}}</a></p>
+                        <p class="user_info">Phone Number: <span class="value">{{user.phone_number}}</span></p>
+                        <p class="user_info">Birthday: <span class="value">{{user.date_of_birth}}</span></p>
+                        <p class="user_info">Address: <span class="value">{{user.address}}</span></p>
+                        <p class="user_info">Gender: <span class="value">{{user.gender}}</span></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="infos">
+                <div class="user_data1">
+                        <p class="user_info">Education: <span class="value">{{user.education}}</span></p>
+                        <p class="user_info">Languages: <span class="value">{{user.language_known}}</span></p>
+                        <p class="user_info">Experience: <span class="value">{{user.experience}}</span></p>
+                        <p class="user_info">Linkedin: <span class="value">{{user.linkedin}}</span></p>
+                        {% if user.role == 'Doctor' %}
+                            <p class="user_info">License: <span class="value">{{user.license_no}}</span></p>
+                        {% endif %}
+                    </div>
+
+
+            <div class="about_info">
+                <h5 class="education_heading headings">About</h5>
+                <p name="" >{{user.about}}</p>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+ {% endblock %}

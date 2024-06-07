@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Add Staff{% endblock %}
+
+{% block content %}
+<!--    <div class="col-md-2_content">-->
+        <div class="primary_heading">
+            <h4 class="heading--text">
+                Add Staff
+            </h4>
+        </div>
+        <div class="form_data">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form_input">
+
+                <div class="form-input">
+                    <label for="firstname">First name</label>
+                    <input type="text" id="firstname" name ="first_name" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-input">
+                    <label for="lastname">Last name</label>
+                    <input type="text" id="lastname" name ="last_name" placeholder="Enter your last name" required >
+                </div>
+
+                <div class="form-input">
+                    <label for="mail">Email</label>
+                    <input type="email" id="mail" name ="email" placeholder="Enter your mail" required >
+                    <p id="error">Invalid Email Address</p>
+                </div>
+                <div class="form-input">
+                    <label for="role">Role</label>
+                    <input type="text" id="role" name ="role" value="Staff" required >
+                </div>
+                <div class="form-input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name ="password" value="12345678" required >
+                    <i class="far fa-eye password_icon" id="togglePassword"  style="margin-left: 0px; cursor: pointer; color:black;"></i>
+                </div>
+                <div class="form-input">
+                    <label for="education">Education</label>
+                    <input type="text" id="education" name ="education" placeholder="Enter Education ex: BE, MBBS" required >
+                </div>
+                <div class="form-input">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name ="designation" placeholder="Enter designation" required >
+                </div>
+                <div class="form-input">
+                    <label for="">Select Gender</label>
+                    <select name="gender" id="">
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-input">
+                    <label for="phonenumber">Mobile No</label>
+                    <input type="text" id="phonenumber" name ="phone_number" placeholder="Enter phone number" required >
+                </div>
+                <div class="form-input">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name ="date_of_birth" placeholder= "Enter DOB" required >
+                </div>
+                <div class="form-input">
+                    <label for="dob">Joining Date</label>
+                    <input type="date" id="joining_date" name ="joining_date" autocomplete="off" required >
+                </div>
+                <div class="form-input">
+                    <label for="language_known">Known Language</label>
+                    <input type="text" id="language_known" name ="language_known" placeholder= "Enter known language" required >
+                </div>
+                <div class="form-input upload">
+                    <label for="img">Upload</label>
+                    <input type="file" id="img" name ="img" autocomplete="off" required>
+                </div>
+
+                 <div class="form-input textarea">
+                     <label for="">Address</label>
+                     <textarea name="address" id="" cols="10" rows="1" placeholder="Enter address" required></textarea>
+                 </div>
+                      <div class="form-input textarea">
+                     <label for="">Bio</label>
+                     <textarea name="about" id="" cols="10" rows="1" placeholder="Enter Bio" required></textarea>
+                 </div>
+            </div>
+            <div class="btn_block btn_department">
+                <a href="{% url 'stafflist' %}" class="btn btn_cancel">Cancel</a>
+                <button type="submit" class="btn btn_submit">Create Doctor</button>
+            </div>
+        </form>
+</div>
+<!--    </div>-->
+ {% endblock %}
