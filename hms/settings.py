@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2@3+iq^t_55m)(m^2oo3@q4n0rv=$7mu!ae7#nv3)e_=t21-id'
+SECRET_KEY = '********'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['****.pythonanywhere.com']
+ALLOWED_HOSTS = ['']
 
 
 
@@ -63,7 +63,7 @@ AUTH_USER_MODEL = 'authentication.UserAuthentication'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/vijay3012/hms/templates'],
+        'DIRS': [''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,11 +132,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/vijay3012/hms/media'
+
+MEDIA_ROOT = ''
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/vijay3012/hms/static'
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 
