@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block title %}Delete Appointment{% endblock %}
+{% block content %}
+
+<div class="deleteDept">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="del_block">
+
+            <div class="del_heading">
+                <h5>Are you sure?</h5>
+                <a href="{% url 'appointment' %}">X</a>
+            </div>
+            <div class="del_text">
+                <p>Are you sure you want to delete this appointment ? </p>
+            </div>
+            <div class="btn btn-del">
+
+                <button type="submit" class="btn btn_cancel"><a href="{% url 'appointment' %}">Cancel</a></button>
+                <button type="submit" class="btn btn_submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Add Department | Digital Front Door{% endblock %}
+{% block content %}
+    <div class="form_block">
+        <div class="form">
+            <div class="form_primary_heading">
+                <h4 class="heading--text">
+                    Add Department
+                </h4>
+                <a href="{% url 'department_list' %}">X</a>
+            </div>
+            <form action="" method="post" >
+                {% csrf_token %}
+                <div class="formInput form--block">
+                    <div class="form-input input_department">
+                        <label for="department_name">Department name</label>
+                        <input type="text" id="department_name" name ="department_name"  required>
+                    </div>
+                     <div class="form-input input_department">
+                        <label for="department_name">Department Number</label>
+                        <input type="text" id="department_name" name ="department_no"  required>
+                     </div>
+
+                     <div class="form-input input_department">
+                        <label for="department_head">Department Head</label>
+                        <input type="text" id="department_head" name ="department_head"  required>
+                    </div>
+                     <div class="form-input input_department">
+                        <label for="department_date">Department Date</label>
+                        <input type="date" id="department_date" name ="department_date"  required>
+                    </div>
+                    <div class="form-input input_department">
+                        <label for="department_status">Department Status</label>
+                        <input type="text" id="department_status" name ="department_status"  required>
+                    </div>
+
+                <div class="form-input input_department input_dept_info">
+                    <label for="department_date">Department Info</label>
+                    <input type="text" id="department_info" name ="department_info"   required>
+                </div>
+                </div>
+                 <div class="btn_block btn_department">
+                    <a href="{% url 'department_list' %}" class="btn btn_cancel">Cancel</a>
+                    <button type="submit" class="btn btn_submit">Create Department</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

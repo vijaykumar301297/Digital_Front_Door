@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Delete Staff {% endblock %}
+{% block content %}
+
+<div class="deleteDept">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="del_block">
+
+            <div class="del_heading">
+                <h5>Are you sure?</h5>
+                <a href="{% url 'stafflist' %}">X</a>
+            </div>
+            <div class="del_text">
+                <p>Are you sure you want to delete the user <strong>{{staff_data.first_name}} {{doct_data.last_name}}</strong>?</p>
+            </div>
+            <div class="btn btn-del">
+
+                <button type="submit" class="btn btn_cancel"><a href="{% url 'stafflist' %}">Cancel</a></button>
+                <button type="submit" class="btn btn_submit">Delete Staff</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

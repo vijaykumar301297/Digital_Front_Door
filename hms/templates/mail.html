@@ -1,0 +1,19 @@
+{% autoescape off %}
+
+    Hello {{ name }},
+
+        You have been set up a new user of NUS Consulting Group's TTS System.
+
+        Please click the button below to confirm your e-mail address and complete the creation of your account.
+
+        Please confirm your email by clicking on the following link.
+
+        Your username - {{name}} and password ={{password}} and role ={{role}}
+
+        Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+        Note:
+
+        The password is dummy kindly reset your password.
+
+{% endautoescape %}
